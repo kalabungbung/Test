@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Copy to Clipboard</title>
-</head>
-<body>
-  <button onclick="copyToClipboard()">Copy Content</button>
-  <script>
-    function copyToClipboard() {
-      const content = `data:text/html,<!doctype html>
+<!doctype html>
       <html>
         <head>
           <title>2x2 matrix view - tinyCam Monitor PRO</title>
@@ -43,15 +32,4 @@
             </tr>
           </table>
         </body>
-      </html>`;
-      navigator.clipboard.writeText(content)
-      .then(() => {
-        alert("Content copied to clipboard!");
-      })
-      .catch(err => {
-        console.error('Failed to copy: ', err);
-      });
-    }
-  </script>
-</body>
-</html>
+      </html>
