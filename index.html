@@ -7,17 +7,30 @@
 </head>
 <body>
 
-<script>
-function redirectToPage() {
-  window.location.href = "data:text/html,<!doctype html><html><head><title>2x2 matrix view - tinyCam Monitor PRO</title><style>body{margin:0;padding:0;}img{width:calc(50vw - 5px);height:calc(50vh - 5px);display:block;}table{border-spacing:0;}td{padding:0;}</style></head><body><table><tr><td><img src='http://192.168.68.100:8083/axis-cgi/mjpg/video.cgi?camera=1&fps=30&compression=80&resolution=480x640' alt='Camera 1'/></td><td><img src='http://192.168.68.100:8083/axis-cgi/mjpg/video.cgi?camera=2&fps=30&compression=80&resolution=480x640' alt='Camera 2'/></td></tr><tr><td><img src='http://192.168.68.100:8083/axis-cgi/mjpg/video.cgi?camera=3&fps=30&compression=80&resolution=480x640' alt='Camera 3'/></td><td><img src='http://192.168.68.100:8083/axis-cgi/mjpg/video.cgi?camera=4&fps=30&compression=80&resolution=480x640' alt='Camera 4'/></td></tr></table></body></html>";
-}
-
-document.addEventListener("DOMContentLoaded", function(event) {
-  document.body.addEventListener("click", redirectToPage);
-});
-</script>
-
-<p>Click anywhere on the page to redirect...</p>
-
-</body>
-</html>
+<pre>
+data:text/html,<!doctype html>
+<html>
+  <head>
+    <title>2x2 matrix view - tinyCam Monitor PRO</title>
+    <style>
+      body{
+        margin:0;
+        padding:0;
+      }
+      img {
+        width: calc(50vw - 5px); /* Adjusted width to consider borders */
+        height: calc(50vh - 5px); /* Adjusted height to consider borders */
+        display: block; /* Ensures no extra space for descender */
+      }
+      table {
+        border-spacing: 0; /* Remove spacing between table cells */
+      }
+      td {
+        padding: 0; /* Remove padding inside table cells */
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td><img src='http://192.168.68.100:8083/axis-cgi/mjpg/video.cgi?camera=1&fps=30&compression=80&resolution=480x640' alt='
