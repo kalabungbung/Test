@@ -1,62 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Copy HTML to Clipboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copy to Clipboard</title>
 </head>
 <body>
-
-<button id="copyButton">Copy HTML to Clipboard</button>
-
-<pre id="htmlContent">
-data:text/html,<!doctype html>
-<html>
-  <head>
-    <title>2x2 matrix view - tinyCam Monitor PRO</title>
-    <style>
-      body{
-        margin:0;
-        padding:0;
-      }
-      img {
-        width: calc(50vw - 5px); /* Adjusted width to consider borders */
-        height: calc(50vh - 5px); /* Adjusted height to consider borders */
-        display: block; /* Ensures no extra space for descender */
-      }
-      table {
-        border-spacing: 0; /* Remove spacing between table cells */
-      }
-      td {
-        padding: 0; /* Remove padding inside table cells */
-      }
-    </style>
-  </head>
-  <body>
-    <table>
-      <tr>
-        <td><img src='http://192.168.68.100:8083/axis-cgi/mjpg/video.cgi?camera=1&fps=30&compression=80&resolution=480x640' alt='Camera 1'/></td>
-        <td><img src='http://192.168.68.100:8083/axis-cgi/mjpg/video.cgi?camera=2&fps=30&compression=80&resolution=480x640' alt='Camera 2'/></td>
-      </tr>
-      <tr>
-        <td><img src='http://192.168.68.100:8083/axis-cgi/mjpg/video.cgi?camera=3&fps=30&compression=80&resolution=480x640' alt='Camera 3'/></td>
-        <td><img src='http://192.168.68.100:8083/axis-cgi/mjpg/video.cgi?camera=4&fps=30&compression=80&resolution=480x640' alt='Camera 4'/></td>
-      </tr>
-    </table>
-  </body>
-</html>
-</pre>
-
-<script>
-document.getElementById('copyButton').addEventListener('click', function() {
-  var htmlContent = document.getElementById('htmlContent').textContent;
-  navigator.clipboard.writeText(htmlContent).then(function() {
-    alert('HTML content copied to clipboard!');
-  }).catch(function(error) {
-    console.error('Failed to copy HTML content: ', error);
-  });
-});
-</script>
-
+  <button onclick="copyToClipboard()">Copy Content</button>
+  <script>
+    function copyToClipboard() {
+      const content = `data:text/html,<!doctype html>
+      <html>
+        <head>
+          <title>2x2 matrix view - tinyCam Monitor PRO</title>
+          <style>
+            body{
+              margin:0;
+              padding:0;
+            }
+            img {
+              width: calc(50vw - 5px); /* Adjusted width to consider borders */
+              height: calc(50vh - 5px); /* Adjusted height to consider borders */
+              display: block; /* Ensures no extra space for descender */
+            }
+            table {
+              border-spacing: 0; /* Remove spacing between table cells */
+            }
+            td {
+              padding: 0; /* Remove padding inside table cells */
+            }
+          </style>
+        </head>
+        <body>
+          <table>
+            <tr>
+              <td><img src='http://192.168.68.100:8083/axis-cgi/mjpg/video.cgi?camera=1&fps=30&compression=80&resolution=480x640' alt='Camera 1'/></td>
+              <td><img src='http://192.168.68.100:8083/axis-cgi/mjpg/video.cgi?camera=2&fps=30&compression=80&resolution=480x640' alt='Camera 2'/></td>
+            </tr>
+            <tr>
+              <td><img src='http://192.168.68.100:8083/axis-cgi/mjpg/video.cgi?camera=3&fps=30&compression=80&resolution=480x640' alt='Camera 3'/></td>
+              <td><img src='http://192.168.68.100:8083/axis-cgi/mjpg/video.cgi?camera=4&fps=30&compression=80&resolution=480x640' alt='Camera 4'/></td>
+            </tr>
+          </table>
+        </body>
+      </html>`;
+      navigator.clipboard.writeText(content)
+      .then(() => {
+        alert("Content copied to clipboard!");
+      })
+      .catch(err => {
+        console.error('Failed to copy: ', err);
+      });
+    }
+  </script>
 </body>
 </html>
