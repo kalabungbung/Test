@@ -5,8 +5,15 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <style>
       img {
-        width: 50vw;
-        height: 50vh;
+        width: calc(50vw - 5px); /* Adjusted width to consider borders */
+        height: calc(50vh - 5px); /* Adjusted height to consider borders */
+        display: block; /* Ensures no extra space for descender */
+      }
+      table {
+        border-spacing: 0; /* Remove spacing between table cells */
+      }
+      td {
+        padding: 0; /* Remove padding inside table cells */
       }
     </style>
   </head>
