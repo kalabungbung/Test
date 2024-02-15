@@ -3,11 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Redirect Page</title>
+<title>Copy HTML to Clipboard</title>
 </head>
 <body>
 
-<pre>
+<button id="copyButton">Copy HTML to Clipboard</button>
+
+<pre id="htmlContent">
 data:text/html,<!doctype html>
 <html>
   <head>
@@ -44,6 +46,17 @@ data:text/html,<!doctype html>
   </body>
 </html>
 </pre>
+
+<script>
+document.getElementById('copyButton').addEventListener('click', function() {
+  var htmlContent = document.getElementById('htmlContent').textContent;
+  navigator.clipboard.writeText(htmlContent).then(function() {
+    alert('HTML content copied to clipboard!');
+  }).catch(function(error) {
+    console.error('Failed to copy HTML content: ', error);
+  });
+});
+</script>
 
 </body>
 </html>
